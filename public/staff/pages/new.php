@@ -21,11 +21,11 @@ if(is_post_request()) {
     echo "Position: " . $position . "<br />";
     echo "Visible: " . $visible . "<br />";
 } else {
-    // redirect_to(url_for('/staff/pages/new.php'));
+    // redirect_to(url_for('/staff/pages/index.php'));
 }
 ?>
 
-<?php $page_title = 'New Subject'; ?>
+<?php $page_title = 'New Page'; ?>
 <?php include(SHARED_PATH . '/staff_header.php'); ?>
 
 <div id="content">
@@ -35,7 +35,7 @@ if(is_post_request()) {
   <div class="subject new">
     <h1>New Subject</h1>
 
-    <form action="<?php echo url_for('/staff/pages/new.php?id=' . h(u($id))) ?>" method="post">
+    <form action="<?php echo url_for('/staff/pages/new.php') ?>" method="post">
       <dl>
         <dt>Menu Name</dt>
         <dd><input type="text" name="menu_name" value="<?php echo $menu_name ?>" /></dd>
