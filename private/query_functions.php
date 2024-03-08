@@ -22,15 +22,15 @@
        
     }
 
-    function insert_subject($menu_name, $position, $visible) {
+    function insert_subject($subject) {
         global $db;
 
         $sql =  "INSERT INTO subjects ";
         $sql .=  "(menu_name, position, visible) ";
         $sql .=  "VALUES (";
-        $sql .= "'" . $menu_name . "',";
-        $sql .= "'" . $position . "',";
-        $sql .= "'" . $visible . "'";
+        $sql .= "'" . $subject['menu_name'] . "',";
+        $sql .= "'" . $subject['position'] . "',";
+        $sql .= "'" . $subject['visible'] . "'";
         $sql .= ")";
         $result = mysqli_query($db, $sql);
     
@@ -62,6 +62,24 @@
           exit;
         }
     }
+
+    function delete_subject($id) {
+     global $db;
+
+    $sql = "DELETE FROM subjects ";
+    $sql .= "WHERE id='" . $id . "' ";
+    $sql .= "LIMIT 1";
+    $result = mysqli_query($db, $sql);
+
+    if ($result) {
+        return true;
+    } else {
+        echo mysqli_error($db);
+        db_disconnect($db);
+        exit;
+    }
+}
+
     function find_all_pages() {
         global $db;
         

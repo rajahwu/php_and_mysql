@@ -15,7 +15,7 @@ if(is_post_request()) {
     echo "Menu name: " . $menu_name . "<br />";
     echo "Position: " . $position . "<br />";
     echo "Visible: " . $visible . "<br />";
-} 
+}
 ?>
 
 <?php $page_title = 'New Page'; ?>
